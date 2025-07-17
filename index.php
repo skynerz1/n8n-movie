@@ -391,7 +391,7 @@ function filterRamadanAraby($seriesArray) {
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.8);
-            color: #fff;
+            color: #1c2229;
             padding: 20px;
             opacity: 0;
             transition: opacity 0.3s ease;
