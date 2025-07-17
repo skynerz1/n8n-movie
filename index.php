@@ -391,7 +391,7 @@ function filterRamadanAraby($seriesArray) {
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.8);
-            color: #1c2229;
+            color: #fff;
             padding: 20px;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -535,7 +535,7 @@ nav {
 }
 
 /* responsive styles */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .nav-toggle {
         display: block;
     }
@@ -560,7 +560,7 @@ nav {
         width: 100%;
         padding: 10px 0;
     }
-}
+} */
 .movie-sublabel {
     position: absolute;
     top: 10px;
