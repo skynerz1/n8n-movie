@@ -278,14 +278,14 @@ $playerUrl = "https://dfkz.up.railway.app/api-live.php?ch=" . intval($channelId)
         right: 6px;
     }
 }
-      .channels-grid {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 16px;
-        justify-items: center;
-        max-width: 100%; /* مهم عشان ما يطلع برا */
-        overflow-x: hidden; /* يمنع التمرير الأفقي */
-      }
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* يتكيف مع حجم الشاشة */
+  gap: 16px;
+  justify-items: center;
+  width: 100%;
+  overflow: visible; /* السماح بظهور الأسطر التالية */
+}
 
       .channel-item {
         display: flex;
@@ -395,7 +395,7 @@ $playerUrl = "https://dfkz.up.railway.app/api-live.php?ch=" . intval($channelId)
                     </button>
                 </div>
 
-               <div class="channel-list" id="channel">
+                      <div class="channel-list" id="channel">
   <h3>قنوات أخرى</h3>
   <div class="channels-grid">
 
@@ -471,6 +471,17 @@ $playerUrl = "https://dfkz.up.railway.app/api-live.php?ch=" . intval($channelId)
                       <a href="server-live.php?id=15" class="channel-item">
                         <img src="https://admango.cdn.mangomolo.com/analytics/uploads/71/659cd942e4.png" alt="MBC 2" />
                         <span class="channel-name">دبي</span>
+                      </a>
+
+<a href="server-live.php?id=21" class="channel-item">
+  <img src="https://www.klma.org/wp-content/uploads/2021/04/oman-tv-live-nilesat.jpg" alt="Oman TV" />
+  <span class="channel-name">عمان تيفي</span>
+</a>
+
+
+                      <a href="server-live.php?id=20" class="channel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1M66wi3shj5YXhO6Cv9rf3B-ZXSLBEC2Tg&s" alt="MBC 2" />
+                        <span class="channel-name">البحرين</span>
                       </a>
 
                         <a href="server-live.php?id=9" class="channel-item">
