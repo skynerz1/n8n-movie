@@ -435,7 +435,8 @@ function filterRamadanAraby($seriesArray) {
     position: absolute;
     top: 40px; /* تم تغيير القيمة لتكون أسفل content-type */
     right: 10px;
-    background-color: rgb(255, 21, 0);
+background-color: #008000;
+
     color: white;
     padding: 3px 8px;
     border-radius: 4px;
@@ -571,7 +572,8 @@ background: #008000;
     font-size: 0.75rem;
     font-weight: 700;
     border-radius: 20px;
-    box-shadow: 0 0 6px rgba(229, 9, 20, 0.7);
+box-shadow: 0 0 6px rgba(28, 34, 41, 0.7);
+
     pointer-events: none;
     user-select: none;
     z-index: 10;
