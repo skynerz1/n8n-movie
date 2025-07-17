@@ -407,7 +407,7 @@ function filterRamadanAraby($seriesArray) {
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #e50914;
+            background-color: #008000;;
             color: #fff;
             padding: 8px 16px;
             border-radius: 4px;
@@ -423,7 +423,7 @@ function filterRamadanAraby($seriesArray) {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #e50914;
+    background-color: #008000;;
     color: white;
     padding: 3px 8px;
     border-radius: 4px;
@@ -565,7 +565,7 @@ nav {
     position: absolute;
     top: 10px;
     left: 10px; /* بدل right */
-    background: rgba(229, 9, 20, 0.9);
+background: #008000;
     color: #fff;
     padding: 4px 10px;
     font-size: 0.75rem;
