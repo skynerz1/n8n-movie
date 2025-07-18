@@ -341,13 +341,13 @@ function filterRamadanAraby($seriesArray) {
             font-size: 1.1rem;
             border: none;
             border-radius: 0 30px 30px 0;
-            background-color: #e50914;
+            background-color: #008000;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
         .hero .search-button:hover {
-            background-color: #ff0f1f;
+            background-color: #1c2229;
         }
         .movie-section {
             padding: 40px 0;
@@ -746,13 +746,15 @@ box-shadow: 0 0 6px rgba(28, 34, 41, 0.7);
 
     <main class="main-content">
         <section class="hero">
-            <div class="container">
-                <form action="" method="GET" class="search-form">
-                    <input type="text" name="search" class="search-input" placeholder="Search for TV series..." required>
-                    <button type="submit" class="search-button">Search</button>
-                </form>
-            </div>
+          <div class="container">
+            <form class="search-form" onsubmit="return false;">
+                <input type="text" class="search-input" placeholder="شي يستاهل الانتظار" disabled style="background-color: white; color: black;" />
+
+              <button type="button" class="search-button">قريباً</button>
+            </form>
+          </div>
         </section>
+
 
 
         
