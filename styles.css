@@ -1,6 +1,6 @@
 /* General Styles */
 :root {
-  --primary-color: #e50914;
+  --primary-color: #e60adf;
   --secondary-color: #141414;
   --text-color: #ffffff;
   --background-color: #1c2229; /* أخضر */
@@ -75,15 +75,15 @@ body {
 .search-input {
   padding: 10px;
   border: none;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: var(--text-color);
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  color: #008000;
   border-radius: 4px 0 0 4px;
 }
 
 .search-button {
   padding: 10px 20px;
   background-color: var(--primary-color);
-  color: var(--text-color);
+  color: #008000;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
