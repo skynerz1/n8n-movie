@@ -264,7 +264,7 @@ function getSeriesDetails($seriesId) {
 
 .episode-selector {
     margin-top: 40px;
-    background: #1c2229;
+    background: #111;
     padding: 20px;
     border-radius: 10px;
 }
@@ -399,7 +399,29 @@ function getSeriesDetails($seriesId) {
     }
 }
 
+        .share-wrapper-center {
+          text-align: center;
+          margin: 20px 0;
+        }
 
+        .share-btn {
+          background: linear-gradient(to right, #0c9, var(--tw-gradient-from-position, #0c9)); /* احتياطي إذا المتغير غير معرف */
+          color: #fff;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 15px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          direction: rtl;
+          transition: background 0.3s ease;
+        }
+
+        .share-btn:hover {
+          filter: brightness(1.1);
+        }
     </style>
 </head>
 <body>
@@ -476,11 +498,16 @@ function getSeriesDetails($seriesId) {
                     </div>
                 </div>
             </div>
-            <?php if ($downloadLink): ?>
-                <a href="<?= htmlspecialchars($downloadLink) ?>" target="_blank" class="download-button">تحميل</a>
-            <?php else: ?>
-                <span class="download-button" style="background:#777;cursor:not-allowed;">التحميل غير متوفر</span>
-            <?php endif; ?>
+            <?php
+            $episodeUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            ?>
+
+            <div class="share-wrapper-center">
+              <button class="share-btn" data-url="<?= htmlspecialchars($episodeUrl) ?>" title="مشاركة الحلقة">
+                📤 مشاركة الحلقة
+              </button>
+            </div>
+
 
         <?php
         $currentSeason = null;
@@ -518,6 +545,22 @@ function getSeriesDetails($seriesId) {
 
     </div>
     <script>
+        document.querySelectorAll('.share-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-url');
+            if (navigator.share) {
+              navigator.share({
+                title: 'شارك الحلقة',
+                url: url
+              }).catch(console.error);
+            } else {
+              navigator.clipboard.writeText(url).then(() => {
+                alert('تم نسخ رابط الحلقة!');
+              });
+            }
+          });
+        });
+        
         function loadServer(url, button) {
             const iframe = document.getElementById('player-iframe');
             iframe.src = url;
@@ -639,6 +682,9 @@ function getSeriesDetails($seriesId) {
             }
           });
         })();
+
+
+        
     </script>
             <?php include 'includes/footer.php'; ?>
 </body>
