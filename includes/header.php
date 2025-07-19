@@ -19,11 +19,16 @@
 
     header {
       background-color: #1c2229;
-
-      padding: 15px 30px;
+      padding: 6px 30px; /* تقليل الـ padding من 15px إلى 6px */
       position: relative;
       z-index: 100;
     }
+
+    .logo-text img {
+      height: 45px; /* تقليل ارتفاع الصورة من 85px إلى 45px */
+      vertical-align: middle;
+    }
+
 
     .header-content {
       max-width: 1200px;
@@ -40,10 +45,7 @@
       text-decoration: none;
     }
 
-    .logo-text img {
-      height: 85px; /* عدل الحجم اللي تبيه */
-      vertical-align: middle;
-    }
+
 
 
     .main-nav {
