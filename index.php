@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'load.php';
+
 include 'includes/header.php';
 function saveToSearchResults($newItems) {
     $filename = 'search_results.json';
