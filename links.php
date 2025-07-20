@@ -105,6 +105,9 @@ if ($episodeId) {
             if (isset($episodeLinks[1])) {
                 $episodeLinks[1]['type'] = 'سيرفر ناين بلس 2';
             }
+            if (isset($episodeLinks[2])) {
+                $episodeLinks[2]['type'] = 'سيرفر ناين بلس 3';
+            }
 
             $downloadLink = getDownloadLink($episodeLinks);
         }
