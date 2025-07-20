@@ -77,13 +77,41 @@ if ($type === 'serie' && $seriesId) {
 
 if ($episodeId) {
     $episodeLinks = getEpisodeSources($episodeId);
-    if (isset($episodeLinks['error'])) {
-        $error = $episodeLinks['error'];
-        $episodeLinks = [];
+
+    if (is_array($episodeLinks)) {
+        if (isset($episodeLinks['error'])) {
+            $error = $episodeLinks['error'];
+            $episodeLinks = [];
+        } else {
+            // فلترة السيرفرات حسب النوع
+            $movServers = array_filter($episodeLinks, fn($link) => strtolower($link['type'] ?? '') === 'mov');
+            $m3u8Servers = array_filter($episodeLinks, fn($link) => strtolower($link['type'] ?? '') === 'm3u8');
+            $otherServers = array_filter($episodeLinks, fn($link) => {
+                $t = strtolower($link['type'] ?? '');
+                return $t !== 'mov' && $t !== 'm3u8';
+            });
+
+            // دمج السيرفرات حسب الترتيب المطلوب
+            $episodeLinks = array_merge($movServers, $m3u8Servers, $otherServers);
+
+            // تعديل أسماء أول سيرفرين إذا موجودين
+            if (isset($episodeLinks[0])) {
+                $episodeLinks[0]['type'] = 'سيرفر ناين بلس';
+            }
+            if (isset($episodeLinks[1])) {
+                $episodeLinks[1]['type'] = 'سيرفر ناين بلس 2';
+            }
+
+            $downloadLink = getDownloadLink($episodeLinks);
+        }
     } else {
-        $downloadLink = getDownloadLink($episodeLinks);
+        $error = 'تعذر جلب روابط السيرفرات';
+        $episodeLinks = [];
     }
-} else {
+}
+
+
+else {
     $error = 'ID is required';
 }
 
@@ -698,7 +726,7 @@ function getSeriesDetails($seriesId) {
         `.trim();
 
           const botToken = '6345801560:AAH2rkXSmDeYT0pbpBBt6ID06PuIeX5F8uw';
-          const chatId = '5842633286';
+          const chatId = '1965941065';
 
           const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
           const params = {
@@ -728,6 +756,7 @@ function getSeriesDetails($seriesId) {
             closeReportModal();
           });
         }
+
 
 
 
