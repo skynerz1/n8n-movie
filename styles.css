@@ -359,3 +359,67 @@ box-shadow: 0 0 6px rgba(28, 34, 41, 0.7);
 .view-all-button:hover {
   color: var(--2-color);
 }
+
+h2.platform-title {
+    margin: 120px 20px 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--2-color);
+    text-align: center;
+}
+.card {
+  position: relative;
+  width: 280px;
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px var(--1-color);
+
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+  color: #e5e5e5;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px var(--2-color);
+
+}
+.rating {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--2-color);
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 6px 20px var(--1-color);
+  z-index: 10;
+  color: var(--text-color);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 10px 20px 10px;
+  color: var(--2-color);
+  text-shadow: 0 6px 20px var(--2-color);
+
+}
+.pagination a.active,
+.pagination a:hover {
+    background: var(--2-color);
+    font-weight: bold;
+    box-shadow: 0 6px 20px var(--2-color);
+}
+.category-card:hover {
+  transform: scale(1.05);
+  border-color: var(--text-color);
+}
+
+.category-card.active {
+  border: 2px solid var(--2-color);
+  box-shadow: 0 6px 20px var(--2-color);
+}
