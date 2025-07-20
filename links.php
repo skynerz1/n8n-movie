@@ -41,7 +41,7 @@ function getDownloadLink($links) {
 function getSeriesEpisodes($seriesId) {
     $url = "https://app.arabypros.com/api/season/by/serie/{$seriesId}/4F5A9C3D9A86FA54EACEDDD635185/d506abfd-9fe2-4b71-b979-feff21bcad13/";
     $headers = ['User-Agent: okhttp/4.8.0', 'Accept-Encoding: gzip'];
-    
+
 
     $ch = curl_init();
     curl_setopt_array($ch, [
@@ -83,10 +83,14 @@ if ($episodeId) {
             $error = $episodeLinks['error'];
             $episodeLinks = [];
         } else {
-            // فلترة السيرفرات حسب النوع
-            $movServers = array_filter($episodeLinks, fn($link) => strtolower($link['type'] ?? '') === 'mov');
-            $m3u8Servers = array_filter($episodeLinks, fn($link) => strtolower($link['type'] ?? '') === 'm3u8');
-            $otherServers = array_filter($episodeLinks, fn($link) => {
+            // فلترة السيرفرات حسب النوع باستخدام function عادية
+            $movServers = array_filter($episodeLinks, function($link) {
+                return strtolower($link['type'] ?? '') === 'mov';
+            });
+            $m3u8Servers = array_filter($episodeLinks, function($link) {
+                return strtolower($link['type'] ?? '') === 'm3u8';
+            });
+            $otherServers = array_filter($episodeLinks, function($link) {
                 $t = strtolower($link['type'] ?? '');
                 return $t !== 'mov' && $t !== 'm3u8';
             });
@@ -109,6 +113,7 @@ if ($episodeId) {
         $episodeLinks = [];
     }
 }
+
 
 
 else {
@@ -646,7 +651,7 @@ function getSeriesDetails($seriesId) {
             }
           });
         });
-        
+
         function loadServer(url, button) {
             const iframe = document.getElementById('player-iframe');
             iframe.src = url;
@@ -863,7 +868,7 @@ function getSeriesDetails($seriesId) {
         })();
 
 
-        
+
     </script>
             <?php include 'includes/footer.php'; ?>
 </body>
