@@ -443,6 +443,15 @@ h2.platform-title {
   background-color: var(--2-color);
 }
 
+/* رفع الأزرار عن القاع على الشاشات الصغيرة */
+@media (max-width: 600px) {
+  .pagination {
+    margin-top: 30px;
+    margin-bottom: 60px; /* ترفع شوية المسافة من تحت */
+  }
+}
+
+
 .filters, .categories {
   margin-bottom: 20px;
 }
