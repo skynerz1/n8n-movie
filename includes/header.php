@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>N8n Movie</title>
+  <title>DFKZ WATCH MOVIE & SERIES & CHANNEL</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css">
-  <style>
+ <style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -298,7 +298,7 @@
   <div class="header-content">
     <!-- Logo -->
     <a href="index.php" class="logo-text">
-      <img src="../includes/img/n8n.png" alt="n8n Logo">
+      <img src="../includes/img/dfkz.png" alt="dfkz Logo">
     </a>
 
     <!-- زر البحث بجانب اللوقو -->
@@ -320,7 +320,7 @@
         <li><a href="../index.php"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="../movie"><i class="fas fa-film"></i> Movies</a></li>
         <li><a href="../index.php"><i class="fas fa-tv"></i> Series</a></li>
-        <li><a href="/server-live.php#channel"><i class="fas fa-broadcast-tower"></i> Channels</a></li>
+        <li><a href="/cat.php?category=channels"><i class="fas fa-broadcast-tower"></i> Channels</a></li>
         <li><a href="../favorites.php"><i class="fas fa-heart"></i> Favorites</a></li>
         <li><a href="../contact.php"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
@@ -347,7 +347,7 @@
       <i class="fas fa-film"></i>
       <span>أفلام</span>
     </a>
-    <a href="/server-live.php#channel" class="nav-item">
+    <a href="/cat.php?category=channels" class="nav-item">
       <i class="fas fa-broadcast-tower"></i>
       <span>لايف</span>
     </a>
