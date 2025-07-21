@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DFKZ WATCH MOVIE & SERIES & CHANNEL</title>
+  <title>n8n movie</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css">
  <style>
@@ -298,7 +298,7 @@
   <div class="header-content">
     <!-- Logo -->
     <a href="index.php" class="logo-text">
-      <img src="../includes/img/dfkz.png" alt="dfkz Logo">
+      <img src="../includes/img/n8n.png" alt="n8n Logo">
     </a>
 
     <!-- زر البحث بجانب اللوقو -->
