@@ -279,7 +279,7 @@
     <!-- Mobile/iPad Top Header -->
     <div class="mobile-header mobile-only">
       <button class="header-btn left-btn"><i class="fas fa-cog"></i></button>
-      <h1 class="mobile-title" id="mobile-page-title">Revo</h1>
+      <h1 class="mobile-title" id="mobile-page-title">N8n</h1>
      <a href="#" class="header-btn right-btn" id="mobile-search-btn">
   <i class="fas fa-search"></i>
 </a>
@@ -290,7 +290,7 @@
     
     <!-- Logo -->
     <a href="index.php" class="logo-text">
-      <img src="includes/img/revo.png" alt="revo Logo">
+      <img src="includes/img/n8n.png" alt="revo Logo">
     </a>
 
     <!-- زر البحث بجانب اللوقو -->
@@ -414,7 +414,7 @@ function updateSearchFormAction() {
         } else if (path.includes('index') || path.endsWith('/')) {
           titleElement.textContent = 'المسلسلات';
         } else {
-          titleElement.textContent = 'revo';
+          titleElement.textContent = 'N8n';
         }
       }
 
