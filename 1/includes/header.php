@@ -115,7 +115,8 @@
       /* ========== Bottom Bar للجوال والآيباد ========== */
       .bottom-nav {
         position: fixed;
-        bottom: 0;
+        bottom: 15px;
+
         left: 0;
         width: 100%;
         background: #1c2229;
