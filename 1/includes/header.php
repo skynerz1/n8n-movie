@@ -7,74 +7,76 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css">
  <style>
-      /* ========== الأساسيات ========== */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-   
+   /* ========== الأساسيات ========== */
+   * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+   }
 
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #1c2229;
-        padding-bottom: 60px; /* للبوتوم بار */
-      }
+   body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background-color: #1c2229;
+     padding-bottom: 60px; /* للبوتوم بار */
+   }
 
-      /* ========== هيدر الديسكتوب ========== */
-      header.desktop-only {
-        background-color: #1c2229;
-        padding: 6px 30px;
-        position: relative;
-        z-index: 100;
-        display: flex;
-      }
+   /* ========== هيدر الديسكتوب ========== */
+   header.desktop-only {
+     background-color: #1c2229;
+     padding: 6px 30px;
+     position: relative;
+     z-index: 100;
+     display: flex;
+   }
 
-      .header-content {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+   .header-content {
+     max-width: 1200px;
+     margin: auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 100%;
+   }
 
-      .logo-text img {
-        height: 45px;
-        vertical-align: middle;
-      }
+   /* اللوقو وسط */
+   .logo-text {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+   }
 
-      .logo-text {
-        color: red;
-        font-size: 26px;
-        font-weight: bold;
-        text-decoration: none;
-      }
+   .logo-text img {
+     height: 45px;
+     vertical-align: middle;
+   }
 
-      .main-nav ul.nav-list {
-        display: flex;
-        list-style: none;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
+   /* تنسيق روابط الناف */
+   .main-nav ul.nav-list {
+     display: flex;
+     list-style: none;
+     gap: 20px;
+     flex-wrap: wrap;
+   }
 
-      .main-nav ul.nav-list li a {
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border-radius: 6px;
-        transition: background 0.3s ease, color 0.3s ease;
-      }
+   .main-nav ul.nav-list li a {
+     color: white;
+     text-decoration: none;
+     font-size: 16px;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     padding: 8px 12px;
+     border-radius: 6px;
+     transition: background 0.3s ease, color 0.3s ease;
+   }
 
-      .main-nav ul.nav-list li a:hover {
-        background-color: #1c2229;
-        color: red;
-      }
+   .main-nav ul.nav-list li a:hover {
+     background-color: #1c2229;
+     color: red;
+   }
 
-      /* ========== هيدر الجوال / الآيباد ========== */
+   /* ========== هيدر الجوال / الآيباد ========== */
    .mobile-header {
      position: fixed;
      top: 0;
@@ -89,187 +91,205 @@
      border-bottom: 1px solid #333;
    }
 
+   .mobile-header .mobile-title {
+     color: white;
+     font-size: 16px;
+     font-weight: bold;
+     margin: 0;
+     flex: 1;
+     text-align: center;
+   }
 
-      .mobile-header .mobile-title {
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        margin: 0;
-        flex: 1;
-        text-align: center;
-      }
+   .header-btn {
+     background: none;
+     border: none;
+     color: white;
+     font-size: 18px;
+     cursor: pointer;
+     width: 35px;
+   }
 
-      .header-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        width: 35px;
-      }
+   .header-btn:hover {
+     color: red;
+   }
 
-      .header-btn:hover {
-        color: red;
-      }
+   /* ========== Bottom Bar للجوال والآيباد ========== */
+   .bottom-nav {
+     position: fixed;
+     bottom: 15px;
+     left: 0;
+     width: 100%;
+     background: #1c2229;
+     display: none;
+     justify-content: space-around;
+     border-top: 1px solid #333;
+     z-index: 999;
+     padding: 6px 0;
+   }
 
-      /* ========== Bottom Bar للجوال والآيباد ========== */
-      .bottom-nav {
-        position: fixed;
-        bottom: 15px;
+   .bottom-nav .nav-item {
+     flex: 1;
+     text-align: center;
+     color: white;
+     text-decoration: none;
+     font-size: 11px;
+     transition: color 0.3s ease;
+   }
 
-        left: 0;
-        width: 100%;
-        background: #1c2229;
-        display: none;
-        justify-content: space-around;
-        border-top: 1px solid #333;
-        z-index: 999;
-        padding: 6px 0;
-      }
+   .bottom-nav .nav-item i {
+     display: block;
+     font-size: 20px;
+     margin-bottom: 3px;
+   }
 
-      .bottom-nav .nav-item {
-        flex: 1;
-        text-align: center;
-        color: white;
-        text-decoration: none;
-        font-size: 11px;
-        transition: color 0.3s ease;
-      }
+   .bottom-nav .nav-item:hover {
+     color: red;
+   }
 
-      .bottom-nav .nav-item i {
-        display: block;
-        font-size: 20px;
-        margin-bottom: 3px;
-      }
+   /* ========== البحث المنبثق للجوال ========== */
+   .mobile-search-overlay {
+     display: none;
+     position: fixed;
+     bottom: 60px;
+     left: 0;
+     width: 100%;
+     background: #1c2229;
+     padding: 10px;
+     border-top: 1px solid #333;
+     z-index: 1000;
+   }
 
-      .bottom-nav .nav-item:hover {
-        color: red;
-      }
+   .mobile-search-form {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+   }
 
-      /* ========== البحث المنبثق للجوال ========== */
-      .mobile-search-overlay {
-        display: none;
-        position: fixed;
-        bottom: 60px;
-        left: 0;
-        width: 100%;
-        background: #1c2229;
-        padding: 10px;
-        border-top: 1px solid #333;
-        z-index: 1000;
-      }
+   .mobile-search-form input {
+     flex: 1;
+     padding: 8px 10px;
+     border: none;
+     border-radius: 6px;
+     font-size: 14px;
+     background: #2a2f36;
+     color: white;
+   }
 
-      .mobile-search-form {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
+   .mobile-search-form button {
+     padding: 8px 12px;
+     border: none;
+     background-color: red;
+     color: white;
+     border-radius: 6px;
+     cursor: pointer;
+   }
 
-      .mobile-search-form input {
-        flex: 1;
-        padding: 8px 10px;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        background: #2a2f36;
-        color: white;
-      }
+   /* ========== أزرار البحث ديسكتوب ========== */
+   .desktop-search-overlay {
+     display: none;
+     background: #1c2229;
+     padding: 10px 20px;
+     border-bottom: 1px solid #333;
+     z-index: 999;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     width: 100%;
+   }
 
-      .mobile-search-form button {
-        padding: 8px 12px;
-        border: none;
-        background-color: red;
-        color: white;
-        border-radius: 6px;
-        cursor: pointer;
-      }
+   #desktop-search-btn.active i {
+     color: red !important;
+   }
 
-      /* ========== أزرار البحث ديسكتوب ========== */
-      .desktop-search-overlay {
-        display: none;
-        background: #1c2229;
-        padding: 10px 20px;
-        border-bottom: 1px solid #333;
-        z-index: 999;
-      }
+   .search-icon-btn {
+     text-decoration: none;
+     outline: none;
+     box-shadow: none;
+   }
 
-      #desktop-search-btn.active i {
-        color: red !important;
-      }
+   .search-icon-btn:focus {
+     outline: none;
+   }
 
-      .search-icon-btn {
-        text-decoration: none;
-        outline: none;
-        box-shadow: none;
-      }
+   /* ========== تخصيص العرض ========== */
 
-      .search-icon-btn:focus {
-        outline: none;
-      }
+   /* ديسكتوب فقط (1025px وفوق) */
+   @media (min-width: 1025px) {
+     .desktop-only {
+       display: flex !important;
+     }
 
-      /* ========== تخصيص العرض ========== */
+     .mobile-header,
+     .bottom-nav,
+     .mobile-only {
+       display: none !important;
+     }
 
-      /* ديسكتوب فقط (1025px وفوق) */
-      @media (min-width: 1025px) {
-        .desktop-only {
-          display: flex !important;
-        }
+     .header-content {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+     }
 
-        .mobile-header,
-        .bottom-nav,
-        .mobile-only {
-          display: none !important;
-        }
+     .search-icon-btn {
+       margin-right: auto;
+     }
 
-        .desktop-search-overlay {
-          display: block;
-        }
-      }
+     .logo-text {
+       margin: 0 auto;
+     }
 
-      /* الجوال والآيباد (أقل من 1025px) */
-      @media (max-width: 1300px) {
-        .desktop-only {
-          display: none !important;
-        }
+     .main-nav {
+       margin-left: auto;
+     }
 
-        .mobile-header,
-        .bottom-nav,
-        .mobile-only {
-          display: flex !important;
-        }
+     .main-nav ul.nav-list {
+       gap: 15px;
+     }
 
-        .desktop-search-overlay {
-          display: none !important;
-        }
-         body {
-           padding-top: 60px; /* نفس ارتفاع .mobile-header */
-         }
-      }
+     .desktop-search-overlay {
+       display: none !important;
+     }
+   }
 
+   /* الجوال والآيباد (أقل من 1025px) */
+   @media (max-width: 1250px) {
+     .desktop-only {
+       display: none !important;
+     }
 
-.logo-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  padding: 30px 0; /* زودنا البادينق */
-}
+     .mobile-header,
+     .bottom-nav,
+     .mobile-only {
+       display: flex !important;
+     }
 
-.logo-text img {
-  max-height: 130px; /* كبر الصورة */
-  height: auto;
-  width: auto;
-}
+     .desktop-search-overlay {
+       display: none !important;
+     }
 
-/* للجوال والآيباد */
-@media (max-width: 991px) {
-  .logo-text img {
-    max-height: 150px; /* أكبر في الجوال */
-  }
-}
+     body {
+       padding-top: 60px; /* نفس ارتفاع .mobile-header */
+     }
+   }
 
+   /* تكبير اللوقو */
+   .logo-text {
+     padding: 30px 0;
+   }
 
+   .logo-text img {
+     max-height: 130px;
+     height: auto;
+     width: auto;
+   }
+
+   /* للجوال والآيباد */
+   @media (max-width: 991px) {
+     .logo-text img {
+       max-height: 150px;
+     }
+   }
 
   </style>
 </head>
@@ -288,27 +308,27 @@
     </div>
 
 
-    
+
     <!-- Logo -->
     <a href="index.php" class="logo-text">
       <img src="includes/img/n8n.png" alt="n8n Logo">
     </a>
 
     <!-- زر البحث بجانب اللوقو -->
-    <a href="#" id="desktop-search-btn" class="desktop-only search-icon-btn" style="margin-left: 10px;">
+    <!-- <a href="#" id="desktop-search-btn" class="desktop-only search-icon-btn" style="margin-left: 10px;">
       <i class="fas fa-search" style="color:white; font-size: 20px;"></i>
-    </a>
+    </a> -->
 
 
 
-    
+
 
 
 
 
 
     <!-- Desktop Nav -->
-    <nav class="main-nav desktop-only">
+    <!-- <nav class="main-nav desktop-only">
       <ul class="nav-list">
 
   <li><a href="index.php"><i class="fas fa-home"></i> الرئيسية</a></li>
@@ -320,7 +340,7 @@
         <li><a href="favorites.php"><i class="fas fa-heart"></i> Favorites</a></li>
         <li><a href="../contact.php"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
-    </nav>
+    </nav> -->
 
 
 
@@ -400,7 +420,7 @@ function updateSearchFormAction() {
       // استدعاء التعديل فور تحميل الصفحة
       window.addEventListener('DOMContentLoaded', updateSearchFormAction);
 
-      
+
       const titleElement = document.getElementById('mobile-page-title');
       const path = window.location.pathname.toLowerCase();
       const searchParams = new URLSearchParams(window.location.search);
@@ -415,7 +435,7 @@ function updateSearchFormAction() {
         } else if (path.includes('index') || path.endsWith('/')) {
           titleElement.textContent = 'المسلسلات';
         } else {
-          titleElement.textContent = 'N8n';
+          titleElement.textContent = 'revo';
         }
       }
 
