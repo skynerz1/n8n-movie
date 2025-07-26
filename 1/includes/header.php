@@ -290,17 +290,157 @@
        max-height: 150px;
      }
    }
+   /* هيدر جانبي (فقط للديسكتوب) */
+   .sidebar-nav {
+     position: fixed;
+     top: 0;
+     right: 0;
+     width: 70px;
+     height: 100vh;
+     background-color: #1c2229;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px 0;
+     gap: 25px;
+     z-index: 999;
+     transition: width 0.3s ease;
+   }
+
+   .sidebar-nav:hover {
+     width: 220px;
+     align-items: flex-start;
+     padding-left: 15px;
+   }
+
+   .sidebar-nav .sidebar-item {
+     color: white;
+     text-decoration: none;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     font-size: 14px;
+     transition: color 0.3s ease, background 0.3s ease;
+     width: 100%;
+     padding: 8px 10px;
+     border-radius: 6px;
+   }
+
+   .sidebar-nav .sidebar-item:hover {
+     background: #2a2f36;
+     color: red;
+   }
+
+   .sidebar-nav i {
+     font-size: 20px;
+   }
+
+   /* البحث الجانبي */
+   /* البحث الجانبي */
+   .sidebar-search-container {
+     width: 100%;
+     padding: 0 10px;
+     margin-top: auto;
+     margin-bottom: 20px;
+     transition: all 0.3s ease;
+     display: flex;
+     justify-content: center;
+   }
+
+   .sidebar-search-form {
+     width: 42px;
+     transition: width 0.3s ease;
+     overflow: hidden;
+   }
+
+   .sidebar-nav:hover .sidebar-search-form {
+     width: 100%;
+   }
+
+   .sidebar-search-form .search-wrapper {
+     position: relative;
+     background: #2a2f36;
+     border-radius: 30px;
+     height: 42px;
+     display: flex;
+     align-items: center;
+     padding: 0 10px;
+     gap: 10px;
+     transition: background 0.3s ease;
+     width: 100%;
+   }
+
+   .sidebar-search-form .search-wrapper:hover {
+     background: #3a3f46;
+   }
+
+   .sidebar-search-form .search-wrapper i {
+     color: #ff3d3d;
+     font-size: 16px;
+     flex-shrink: 0;
+   }
+
+   .sidebar-search-form .search-wrapper input {
+     border: none;
+     outline: none;
+     background: transparent;
+     font-size: 14px;
+     color: #fff;
+     width: 100%;
+     opacity: 0;
+     transition: opacity 0.3s ease;
+   }
+
+   .sidebar-nav:hover .sidebar-search-form .search-wrapper input {
+     opacity: 1;
+   }
+
 
   </style>
 </head>
 <body>
+
+
+  
+  <!-- الهيدر الجانبي (ديسكتوب فقط) -->
+  <aside class="sidebar-nav desktop-only">
+    <a href="index.php" class="sidebar-item">
+      <i class="fas fa-tv"></i>
+      <span>مسلسلات</span>
+    </a>
+    <a href="movie.php" class="sidebar-item">
+      <i class="fas fa-film"></i>
+      <span>أفلام</span>
+    </a>
+    <a href="live.php" class="sidebar-item">
+      <i class="fas fa-broadcast-tower"></i>
+      <span>لايف</span>
+    </a>
+    <a href="favorites.php" class="sidebar-item">
+      <i class="fas fa-heart"></i>
+      <span>المفضلة</span>
+    </a>
+    <!-- البحث داخل الهيدر الجانبي -->
+    <div class="sidebar-search-container">
+      <form method="GET" action="index.php" class="sidebar-search-form">
+        <input type="hidden" name="page" value="2">
+        <div class="search-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" name="search" placeholder="ابحث عن فيلم أو مسلسل" required />
+        </div>
+      </form>
+    </div>
+
+  </aside>
+
+  
 <!-- header -->
 <header>
   <div class="header-content">
     <!-- Mobile/iPad Top Header -->
     <div class="mobile-header mobile-only">
       <button class="header-btn left-btn"><i class="fas fa-cog"></i></button>
-      <h1 class="mobile-title" id="mobile-page-title">N8n</h1>
+      <h1 class="mobile-title" id="mobile-page-title">n8n</h1>
      <a href="#" class="header-btn right-btn" id="mobile-search-btn">
   <i class="fas fa-search"></i>
 </a>
@@ -311,7 +451,7 @@
 
     <!-- Logo -->
     <a href="index.php" class="logo-text">
-      <img src="includes/img/n8n.png" alt="n8n Logo">
+      <img src="includes/img/n8n.png" alt="ناين Logo">
     </a>
 
     <!-- زر البحث بجانب اللوقو -->
@@ -435,7 +575,7 @@ function updateSearchFormAction() {
         } else if (path.includes('index') || path.endsWith('/')) {
           titleElement.textContent = 'المسلسلات';
         } else {
-          titleElement.textContent = 'revo';
+          titleElement.textContent = 'ناين بلس';
         }
       }
 
