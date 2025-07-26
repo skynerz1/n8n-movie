@@ -4,7 +4,8 @@ include 'load.php';
 
 // دالة البحث كما هي
 function fetchSearchResults($query) {
-    $encodedQuery = urlencode($query);
+$encodedQuery = rawurlencode($query);
+
     $url = "https://app.arabypros.com/api/search/{$encodedQuery}/0/4F5A9C3D9A86FA54EACEDDD635185/d506abfd-9fe2-4b71-b979-feff21bcad13/";
     
     $ch = curl_init($url);
