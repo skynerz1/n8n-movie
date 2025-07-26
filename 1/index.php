@@ -3,7 +3,8 @@ include 'includes/header.php';
 
 // دالة لعمل طلب GET للAPI مع البحث
 function fetchSearchResults($query) {
-    $encodedQuery = urlencode($query);
+$encodedQuery = rawurlencode($query);
+
     $url = "https://app.arabypros.com/api/search/{$encodedQuery}/0/4F5A9C3D9A86FA54EACEDDD635185/d506abfd-9fe2-4b71-b979-feff21bcad13/";
     
     $ch = curl_init($url);
