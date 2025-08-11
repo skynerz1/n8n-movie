@@ -12,10 +12,22 @@ $sourceFiles = ["includes/sourse/browser.json", "includes/sourse/browser1.json"]
 $cacheDir = "cache";
 $typeKey = $typeFilter ?? 'all';
 $cacheFile = "{$cacheDir}/{$platform}_{$typeKey}_page_{$page}.json";
-
 $cacheMeta = "{$cacheDir}/{$platform}_pages.txt";
 
 if (!file_exists($cacheDir)) mkdir($cacheDir, 0777, true);
+
+// دالة إزالة التكرار حسب مفتاح محدد (id)
+function uniqueById(array $items, string $idKey = 'id') {
+    $unique = [];
+    $seenIds = [];
+    foreach ($items as $item) {
+        if (isset($item[$idKey]) && !in_array($item[$idKey], $seenIds, true)) {
+            $unique[] = $item;
+            $seenIds[] = $item[$idKey];
+        }
+    }
+    return $unique;
+}
 
 if (file_exists($cacheFile) && 
     filemtime($cacheFile) >= max(array_map('filemtime', $sourceFiles))) {
@@ -26,9 +38,6 @@ if (file_exists($cacheFile) &&
 } else {
     $allShows = [];
 
-    // قراءة ودمج البيانات من الملفين
-    $typeFilter = $_GET['type'] ?? null; // أضف هذا السطر قبل الحلقة
-
     foreach ($sourceFiles as $file) {
         if (file_exists($file)) {
             $data = json_decode(file_get_contents($file), true);
@@ -37,9 +46,9 @@ if (file_exists($cacheFile) &&
 
                 // فلترة حسب النوع إذا تم تحديده
                 if ($typeFilter === 'mov') {
-                    $platformData = array_filter($platformData, fn($item) => $item['type'] === 'movie');
+                    $platformData = array_filter($platformData, fn($item) => isset($item['type']) && $item['type'] === 'movie');
                 } elseif ($typeFilter === 'ser') {
-                    $platformData = array_filter($platformData, fn($item) => $item['type'] === 'serie');
+                    $platformData = array_filter($platformData, fn($item) => isset($item['type']) && $item['type'] === 'serie');
                 }
 
                 $allShows = array_merge($allShows, $platformData);
@@ -47,6 +56,15 @@ if (file_exists($cacheFile) &&
         }
     }
 
+    // إزالة التكرار حسب 'id'
+    $allShows = uniqueById($allShows, 'id');
+
+    // ترتيب تنازلي حسب السنة (الأحدث أول)
+    usort($allShows, function($a, $b) {
+        $yearA = isset($a['year']) ? (int)$a['year'] : 0;
+        $yearB = isset($b['year']) ? (int)$b['year'] : 0;
+        return $yearB <=> $yearA;
+    });
 
     $totalShows = count($allShows);
     $totalPages = max(1, ceil($totalShows / $perPage));
