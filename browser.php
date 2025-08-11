@@ -13,6 +13,19 @@ $cacheMeta = "{$cacheDir}/{$platform}_pages.txt";
 
 if (!file_exists($cacheDir)) mkdir($cacheDir, 0777, true);
 
+// دالة لإزالة التكرار حسب id
+function uniqueById(array $items, string $idKey = 'id') {
+    $unique = [];
+    $seenIds = [];
+    foreach ($items as $item) {
+        if (isset($item[$idKey]) && !in_array($item[$idKey], $seenIds, true)) {
+            $unique[] = $item;
+            $seenIds[] = $item[$idKey];
+        }
+    }
+    return $unique;
+}
+
 if (file_exists($cacheFile) && 
     filemtime($cacheFile) >= max(array_map('filemtime', $sourceFiles))) {
 
@@ -32,6 +45,16 @@ if (file_exists($cacheFile) &&
         }
     }
 
+    // إزالة التكرار حسب 'id'
+    $allShows = uniqueById($allShows, 'id');
+
+    // ترتيب تنازلي حسب السنة (الأحدث أول)
+    usort($allShows, function($a, $b) {
+        $yearA = isset($a['year']) ? (int)$a['year'] : 0;
+        $yearB = isset($b['year']) ? (int)$b['year'] : 0;
+        return $yearB <=> $yearA;
+    });
+
     $totalShows = count($allShows);
     $totalPages = max(1, ceil($totalShows / $perPage));
 
@@ -45,6 +68,7 @@ if (file_exists($cacheFile) &&
     file_put_contents($cacheMeta, $totalPages);
 }
 ?>
+
 
 
 <style>
