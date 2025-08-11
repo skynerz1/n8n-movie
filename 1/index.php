@@ -76,7 +76,7 @@ $seriesCategories = [
         'name' => 'مسلسلات شاهد',
         'url' => 'browser.php?platform=shahid&page=1&type=ser',
         'image' => 'https://image.tmdb.org/t/p/w500/132NXjSXMPJnUz57ym6M7Rw0q9X.jpg',
-        'count' => '30+'
+        'count' => '96+'
     ],
     [
         'name' => 'مسلسلات osn',
