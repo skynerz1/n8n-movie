@@ -184,6 +184,11 @@ $categories = [
         'channels' => array_filter($channels, fn($c) => strpos($c['name'], 'ام بي سي') !== false),
     ],
     [
+        'name' => 'قنوات شاهد',
+        'image' => 'https://shahid.mbc.net/mediaObject/shahidlogo/light/Shahid_logo_light/original/Shahid_logo_light.png?height=178&width=auto&croppingPoint=mc&type=webp',
+        'channels' => array_filter($channels, fn($c) => strpos($c['name'], 'شاهد') !== false),
+    ],
+    [
         'name' => 'رياضية',
         'image' => 'https://cdn-icons-png.flaticon.com/512/833/833314.png',
         'channels' => array_filter($channels, fn($c) => strpos($c['name'], 'bein') !== false || strpos($c['name'], 'ssc') !== false),
