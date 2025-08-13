@@ -185,7 +185,7 @@ $categories = [
     ],
     [
         'name' => 'قنوات شاهد',
-        'image' => 'https://shahid.mbc.net/mediaObject/shahidlogo/light/Shahid_logo_light/original/Shahid_logo_light.png?height=178&width=auto&croppingPoint=mc&type=webp',
+        'image' => 'https://play-lh.googleusercontent.com/F5FVI-_OJn28LrsNVr8rtJ02kP2hIn1v7wxxsQ_NX_ViqD1TQRSwHFUJkn7DRiSpNA',
         'channels' => array_filter($channels, fn($c) => strpos($c['name'], 'شاهد') !== false),
     ],
     [
