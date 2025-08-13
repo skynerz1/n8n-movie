@@ -190,7 +190,7 @@ $categories = [
     ],
     [
         'name' => 'رياضية',
-        'image' => 'https://cdn-icons-png.flaticon.com/512/833/833314.png',
+        'image' => 'https://a.top4top.io/p_3512jfgj21.png',
         'channels' => array_filter($channels, fn($c) => strpos($c['name'], 'bein') !== false || strpos($c['name'], 'ssc') !== false),
     ],
 ];
