@@ -4,7 +4,7 @@ include 'includes/header.php';
 include 'load.php';
 
 $channelId = $_GET['id'] ?? 1;
-$playerUrl = "https://dfkz.up.railway.app/api-live.php?ch=" . intval($channelId);
+$playerUrl = "https://revo-dfkz.up.railway.app/api-live.php?ch=1" . intval($channelId);
 ?>
 
 <!DOCTYPE html>
